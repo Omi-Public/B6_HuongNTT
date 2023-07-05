@@ -1,0 +1,14 @@
+{
+  "name": "b6_huongntt",
+  "version": "1.0.0",
+  "description": "homeword",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "huongntt",
+  "license": "ISC",
+  "dependencies": {
+    "md5": "^2.3.0"
+  }
+}
