@@ -1,6 +1,7 @@
 const { connection } = require('./db');
 const md5 = require('md5');
 var express = require('express');
+var cors = require('cors');
 var app = express();
 
 app.get('/', function (req, res) {
@@ -50,12 +51,9 @@ app.post('/create', async function (req, res) {
     connection.query('Insert into tbl_user(`username`, `password`, `DoB`, `hometown`,`age`) values(?,?,?,?,?)', [username, md5(password), DoB, hometown, age], function (error, results, fields) {
         res.send(results)
     });
-    // var user = await connection.query('SELECT * FROM tbl_user where id = 1', function (error, results, fields) {
-    // res.send(results)
-    //});
-    // res.json(JSON.stringify(user));
-    // res.send(user);
 });
+
+app.use(cors())
 
 var server = app.listen(3000, function () {
     var host = server.address().address
